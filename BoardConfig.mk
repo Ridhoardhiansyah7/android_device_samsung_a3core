@@ -25,7 +25,11 @@ TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := cortex-a55
 TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a55
 
+# 64-Bit
+TARGET_IS_64_BIT := true
 TARGET_USES_64_BIT_BINDER := true
+TARGET_SUPPORTS_32_BIT_APPS := true
+TARGET_SUPPORTS_64_BIT_APPS := true
 
 TARGET_CPU_SMP := true
 ENABLE_CPUSETS := true
@@ -116,42 +120,8 @@ TW_INCLUDE_CRYPTO_FBE := false
 TW_INCLUDE_FBE_METADATA_DECRYPT := false
 BOARD_USES_METADATA_PARTITION := true
 
-# TWRP
-TW_DEVICE_VERSION := 1_SHEFFDEVELOPER
-TW_THEME := portrait_hdpi
-TARGET_SCREEN_WIDTH := 720
-TARGET_SCREEN_HEIGHT := 1600
-RECOVERY_SDCARD_ON_DATA := true
-
-# Screen & Haptics
-TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
-TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel/brightness"
-TW_MAX_BRIGHTNESS := 240
-TW_DEFAULT_BRIGHTNESS := 120
-TW_USE_SAMSUNG_HAPTICS := true
-TW_Y_OFFSET := 80
-TW_H_OFFSET := -80
-
-# TWRP Settings
-TW_NO_REBOOT_BOOTLOADER := true
-TW_HAS_DOWNLOAD_MODE := true
-TW_INCLUDE_NTFS_3G := true
-TWRP_INCLUDE_LOGCAT := true
-TW_USE_NEW_MINADBD := true
-TW_EXCLUDE_TWRPAPP := true
-TW_EXCLUDE_DEFAULT_USB_INIT := true
-#TW_EXTRA_LANGUAGES := true
-TARGET_USES_MKE2FS := true
-TW_NO_LEGACY_PROPS := true
-TW_NO_BIND_SYSTEM := true
-TW_USE_MODEL_HARDWARE_ID_FOR_DEVICE_ID := true
-TW_MTP_DEVICE := "Galaxy A03 Core"
-# Kernel module loading for touch, battery etc
-#TW_LOAD_VENDOR_MODULES := $(shell echo \"$(shell ls $(DEVICE_PATH)/prebuilt/modules)\")
-TW_LOAD_VENDOR_MODULES := "chipone-tddi.ko chipone-tddi_ss.ko focaltech_ts.ko ilitek-tddi.ko gcore_ss.ko gcore_7202h.ko nt36xxx_ss.ko tcs3430.ko"
-TW_LOAD_VENDOR_BOOT_MODULES := true
-TW_LOAD_VENDOR_MODULES_EXCLUDE_GKI := true
-
-
 # Making the recovery.img smaller
 BOARD_HAS_NO_REAL_SDCARD := true
+
+#Inherit recovery flags
+include device/samsung/a3core/recovery_flags.mk
