@@ -123,5 +123,5 @@ BOARD_USES_METADATA_PARTITION := true
 # Making the recovery.img smaller
 BOARD_HAS_NO_REAL_SDCARD := true
 
-#Inherit recovery flags
+# Inherit recovery flags
 include device/samsung/a3core/recovery_flags.mk
