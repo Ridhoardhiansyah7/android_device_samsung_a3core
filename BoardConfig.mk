@@ -1,4 +1,9 @@
+# Common path
 DEVICE_PATH := device/samsung/a3core
+# SHRP path
+SHRP_DEVICE_CODE := a3core
+SHRP_PATH := device/samsung/$(SHRP_DEVICE_CODE)
+
 ALLOW_MISSING_DEPENDENCIES := true
 
 # Bootloader
