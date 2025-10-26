@@ -36,6 +36,30 @@ TW_MTP_DEVICE := "Galaxy A03 Core"
 TARGET_USES_MKE2FS := true
 RECOVERY_SDCARD_ON_DATA := true
 
+# SHRP Configuration 
+#A/B,SAR
+SHRP_AB := false
+SHRP_DEVICE_TYPE := A_Only
+SHRP_REC_TYPE := SAR
+SHRP_REC := dev/block/by-name/recovery
+SHRP_HAS_RECOVERY_PARTITION := true
+SHRP_INTERNAL := /sdcard
+SHRP_EXTERNAL := /external_sd
+SHRP_OTG := /usb_otg
+#Flashlight
+SHRP_FLASH := 0
+#SHRP_CUSTOM_FLASHLIGHT := true
+#SHRP_FONP_1 :=
+#SHRP_FONP_2 :=
+#SHRP_FONP_3 :=
+SHRP_EXPRESS := true
+#SHRP_EXPRESS_USE_DATA := false
+SHRP_NOTCH := true
+SHRP_DARK := true
+#Legacy(backward), lite mode(not include SHRP themming but will save space for devices with a smaller recovery partition)
+#SHRP_NO_SAR_AUTOMOUNT := false
+#SHRP_LITE := false
+
 # Kernel module loading for touch, battery etc
 TW_LOAD_VENDOR_MODULES := "chipone-tddi.ko chipone-tddi_ss.ko focaltech_ts.ko ilitek-tddi.ko gcore_ss.ko gcore_7202h.ko nt36xxx_ss.ko tcs3430.ko"
 TW_LOAD_VENDOR_BOOT_MODULES := true
