@@ -17,7 +17,8 @@
 PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/twrp_a3core.mk \
     $(LOCAL_DIR)/pbrp_a3core.mk \
-    $(LOCAL_DIR)/shrp_a3core.mk
+    $(LOCAL_DIR)/shrp_a3core.mk \
+    $(LOCAL_DIR)/ofox_a3core.mk
 
 COMMON_LUNCH_CHOICES := \
     twrp_a3core-user \
@@ -26,6 +27,9 @@ COMMON_LUNCH_CHOICES := \
     pbrp_a3core-user \
     pbrp_a3core-userdebug \
     pbrp_a3core-eng \
-    shrp-a3core-user \
-    shrp-a3core-userdebug \
-    shrp-a3core-eng 
+    shrp_a3core-user \
+    shrp_a3core-userdebug \
+    shrp_a3core-eng \
+    ofox_a3core-user \
+    ofox_a3core-userdebug \
+    ofox_a3core-eng
