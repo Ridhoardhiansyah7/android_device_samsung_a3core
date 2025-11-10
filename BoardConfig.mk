@@ -105,11 +105,11 @@ TW_INCLUDE_FBE_METADATA_DECRYPT := false
 BOARD_USES_METADATA_PARTITION := true
 
 # Recovery
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
+TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
+TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 BOARD_HAS_LARGE_FILESYSTEM := true
 BOARD_HAS_NO_SELECT_BUTTON := true
-TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
-
-# Making the recovery.img smaller
 BOARD_HAS_NO_REAL_SDCARD := true
 
 # Inherit partitions flags
