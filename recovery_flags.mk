@@ -1,9 +1,8 @@
 # Screen & Haptics
+TW_THEME := portrait_hdpi
 TARGET_SCREEN_WIDTH := 720
 TARGET_SCREEN_HEIGHT := 1600
 TW_SCREEN_BLANK_ON_BOOT := true
-TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
-TW_THEME := portrait_hdpi
 TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel/brightness"
 TW_MAX_BRIGHTNESS := 240
 TW_DEFAULT_BRIGHTNESS := 120
