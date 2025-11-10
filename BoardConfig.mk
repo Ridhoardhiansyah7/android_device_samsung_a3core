@@ -107,6 +107,7 @@ BOARD_USES_METADATA_PARTITION := true
 # Recovery
 BOARD_HAS_LARGE_FILESYSTEM := true
 BOARD_HAS_NO_SELECT_BUTTON := true
+TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 
 # Making the recovery.img smaller
 BOARD_HAS_NO_REAL_SDCARD := true
