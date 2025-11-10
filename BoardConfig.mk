@@ -14,6 +14,11 @@ TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
 TARGET_USES_UEFI := true
 
+# Platform
+BOARD_USES_SPRD_HARDWARE := true
+TARGET_BOARD_PLATFORM := sp9863a
+TARGET_BOARD_PLATFORM_GPU := img8322
+
 # Architecture
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-2a
@@ -41,23 +46,7 @@ TARGET_CPU_SMP := true
 ENABLE_CPUSETS := true
 ENABLE_SCHEDBOOST := true
 
-# File systems
-TARGET_USERIMAGES_USE_EXT4 := true
-TARGET_USERIMAGES_USE_F2FS := true
-
-# Platform
-TARGET_BOARD_PLATFORM := sp9863a
-TARGET_BOARD_PLATFORM_GPU := img8322
-
-# Kernel
-TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/Image
-TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/dtb.img
-BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/recovery_dtbo.img
-BOARD_INCLUDE_DTB_IN_BOOTIMG := true
-BOARD_INCLUDE_RECOVERY_DTBO := true
-TARGET_KERNEL_ARCH := arm64
-
-# Boot
+# Kernel/Boot
 BOARD_BOOT_HEADER_VERSION := 2
 BOARD_BOOT_HEADER_SIZE := 1660
 BOARD_KERNEL_BASE := 0x00000000
@@ -85,28 +74,13 @@ BOARD_MKBOOTIMG_ARGS := \
 BOARD_CUSTOM_BOOTIMG := true
 BOARD_CUSTOM_BOOTIMG_MK := $(DEVICE_PATH)/bootimg.mk
 
-# Recovery
-BOARD_HAS_LARGE_FILESYSTEM := true
-BOARD_HAS_NO_SELECT_BUTTON := true
-
-# Partitions
-BOARD_FLASH_BLOCK_SIZE := 131072 # $(BOARD_KERNEL_PAGESIZE) * 64
-BOARD_BOOTIMAGE_PARTITION_SIZE := 67108864
-BOARD_RECOVERYIMAGE_PARTITION_SIZE := 67108864
-
-# Dynamic Partitions
-BOARD_SUPER_PARTITION_SIZE := 9126805504
-BOARD_SUPER_PARTITION_GROUPS := samsung_dynamic_partitions
-BOARD_SAMSUNG_DYNAMIC_PARTITIONS_SIZE := 9122611200
-BOARD_SAMSUNG_DYNAMIC_PARTITIONS_PARTITION_LIST := system system_ext vendor product
-
-# System as root
-BOARD_ROOT_EXTRA_FOLDERS := cache carrier efs optics prism omr odm socko odmko
-BOARD_SUPPRESS_SECURE_ERASE := true
-
-# Workaround for error copying vendor files to recovery ramdisk
-BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
-TARGET_COPY_OUT_VENDOR := vendor
+# Kernel-Prebuilt
+TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/Image
+TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/dtb.img
+BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/recovery_dtbo.img
+BOARD_INCLUDE_DTB_IN_BOOTIMG := true
+BOARD_INCLUDE_RECOVERY_DTBO := true
+TARGET_KERNEL_ARCH := arm64
 
 # Android Verified Boot
 BOARD_AVB_ENABLE := true
@@ -130,8 +104,15 @@ TW_INCLUDE_FBE_METADATA_DECRYPT := false
 #TW_FORCE_KEYMASTER_VER := true
 BOARD_USES_METADATA_PARTITION := true
 
+# Recovery
+BOARD_HAS_LARGE_FILESYSTEM := true
+BOARD_HAS_NO_SELECT_BUTTON := true
+
 # Making the recovery.img smaller
 BOARD_HAS_NO_REAL_SDCARD := true
+
+# Inherit partitions flags
+include device/samsung/a3core/partitions.mk
 
 # Inherit recovery flags
 include device/samsung/a3core/recovery_flags.mk
