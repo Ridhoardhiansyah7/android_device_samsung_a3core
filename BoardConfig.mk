@@ -111,7 +111,7 @@ BOARD_HAS_LARGE_FILESYSTEM := true
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_HAS_NO_REAL_SDCARD := true
 
-#additional lib for fix decryption
+# Additional lib for fix decryption
 TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
     $(TARGET_OUT_SHARED_LIBRARIES)/libtrusty \
     $(TARGET_OUT_VENDOR_SHARED_LIBRARIES)/libtrusty \
