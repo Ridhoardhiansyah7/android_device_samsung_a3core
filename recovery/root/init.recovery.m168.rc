@@ -91,6 +91,10 @@ on property:ro.crypto.state=unsupported
     stop keymaster-4-1
     stop gatekeeper-1-0
 
+on property:ro.crypto.state=unencrypted
+    stop keymaster-4-1
+    stop gatekeeper-1-0
+
 on property:twrp.decrypt.done=true
     stop keymaster-4-1
     stop gatekeeper-1-0
