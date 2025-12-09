@@ -4,8 +4,6 @@ DEVICE_PATH := device/samsung/a3core
 SHRP_DEVICE_CODE := a3core
 SHRP_PATH := device/samsung/$(SHRP_DEVICE_CODE)
 
-ALLOW_MISSING_DEPENDENCIES := true
-
 # Bootloader
 BOARD_VENDOR := samsung
 TARGET_SOC := sc9863a
