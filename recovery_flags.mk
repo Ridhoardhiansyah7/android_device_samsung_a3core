@@ -19,7 +19,7 @@ TARGET_SCREEN_HEIGHT := 1600
 TW_SCREEN_BLANK_ON_BOOT := true
 TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel/brightness"
 TW_MAX_BRIGHTNESS := 240
-TW_DEFAULT_BRIGHTNESS := 120
+TW_DEFAULT_BRIGHTNESS := 90
 TW_USE_SAMSUNG_HAPTICS := true
 
 # TWRP Fix Clock,Cpu temp, battery persentase position
@@ -80,7 +80,7 @@ SHRP_DARK := true
 
 # Kernel module loading for touch, battery etc
 TW_LOAD_VENDOR_MODULES := "chipone-tddi.ko chipone-tddi_ss.ko focaltech_ts.ko ilitek-tddi.ko gcore_ss.ko gcore_7202h.ko nt36xxx_ss.ko tcs3430.ko"
-TW_LOAD_VENDOR_BOOT_MODULES := true
-TW_LOAD_VENDOR_MODULES_EXCLUDE_GKI := true
-
 #TW_LOAD_VENDOR_MODULES := $(shell echo \"$(shell ls $(DEVICE_PATH)/prebuilt/modules)\")
+
+TW_LOAD_VENDOR_BOOT_MODULES := false
+#TW_LOAD_VENDOR_MODULES_EXCLUDE_GKI := true
