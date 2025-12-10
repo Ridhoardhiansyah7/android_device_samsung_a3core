@@ -19,6 +19,20 @@ LOCAL_PATH := device/samsung/a3core
 # Dynamic partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
+#V-A/B, A/B
+TARGET_IS_VAB := false
+ENABLE_VIRTUAL_AB := false
+
+# f2fs utilities
+PRODUCT_PACKAGES += \
+    sg_write_buffer \
+    f2fs_io \
+    check_f2fs
+
+# Userdata checkpoint
+PRODUCT_PACKAGES += \
+    checkpoint_gc
+
 # fastbootd
 PRODUCT_PACKAGES += \
     android.hardware.fastboot@1.0-impl-mock \
