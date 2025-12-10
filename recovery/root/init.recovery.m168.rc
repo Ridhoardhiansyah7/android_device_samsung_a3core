@@ -1,3 +1,6 @@
+#add for board init.rc for recovery mode
+import /init.recovery.common.rc
+
 # from vendor/etc/init/vendor.samsung.hardware.sysinput@1.1-service.rc
 on early-boot
     # from vendor/etc/init/init.md.rc (edited by sheffdev)
