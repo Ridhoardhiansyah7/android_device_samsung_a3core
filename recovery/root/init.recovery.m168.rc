@@ -28,6 +28,10 @@ on init
     chown system root /proc/cpwcn/wdtirq
     chmod 766 /proc/cpwcn/wdtirq
 
+on boot
+    start boot-hal-1-1
+    start health-hal-2-1
+
 on post-fs
     chown system system sys/class/sec/tsp/input/enabled
     chmod 664 sys/class/sec/tsp/input/enabled
