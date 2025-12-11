@@ -1,8 +1,5 @@
 # Common path
 DEVICE_PATH := device/samsung/a3core
-# SHRP path
-SHRP_DEVICE_CODE := a3core
-SHRP_PATH := device/samsung/$(SHRP_DEVICE_CODE)
 
 # Bootloader
 BOARD_VENDOR := samsung
@@ -18,20 +15,11 @@ TARGET_BOARD_PLATFORM := sp9863a
 TARGET_BOARD_PLATFORM_GPU := img8322
 
 # Architecture
-TARGET_ARCH := arm64
-TARGET_ARCH_VARIANT := armv8-2a
-TARGET_ARCH_VARIANT := armv8-a
-TARGET_CPU_ABI := arm64-v8a
-TARGET_CPU_ABI2 :=
+TARGET_ARCH := arm
+TARGET_ARCH_VARIANT := armv7-a-neon
+TARGET_CPU_ABI := armeabi-v7a
+TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_VARIANT := cortex-a55
-TARGET_CPU_VARIANT_RUNTIME := cortex-a55
-
-TARGET_2ND_ARCH := arm
-TARGET_2ND_ARCH_VARIANT := armv8-2a
-TARGET_2ND_CPU_ABI := armeabi-v7a
-TARGET_2ND_CPU_ABI2 := armeabi
-TARGET_2ND_CPU_VARIANT := cortex-a55
-TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a55
 
 # 64-Bit
 TARGET_IS_64_BIT := true
@@ -95,11 +83,11 @@ VENDOR_SECURITY_PATCH := 2099-12-31
 PLATFORM_VERSION := 16.1.0
 
 # Crypto-Decryption
-TW_INCLUDE_CRYPTO := true
-TW_INCLUDE_CRYPTO_FBE := true
-TW_INCLUDE_FBE_METADATA_DECRYPT := true
-TW_USE_FSCRYPT_POLICY := 2
-TW_FORCE_KEYMASTER_VER := true
+TW_INCLUDE_CRYPTO := false
+TW_INCLUDE_CRYPTO_FBE := false
+TW_INCLUDE_FBE_METADATA_DECRYPT := false
+#TW_USE_FSCRYPT_POLICY := 2
+#TW_FORCE_KEYMASTER_VER := true
 
 # Recovery
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
@@ -108,43 +96,6 @@ TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 BOARD_HAS_LARGE_FILESYSTEM := true
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_HAS_NO_REAL_SDCARD := true
-
-# Additional lib for fix decryption
-TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libtrusty \
-    $(TARGET_OUT_VENDOR_SHARED_LIBRARIES)/libtrusty \
-$(TARGET_OUT_SHARED_LIBRARIES)/librbs_trustyclient.so \
-    $(TARGET_OUT_VENDOR_SHARED_LIBRARIES)/librbs_trustyclient.so \
-$(TARGET_OUT_SHARED_LIBRARIES)/android.hardware.gatekeeper@1.0.so \
-    $(TARGET_OUT_VENDOR_SHARED_LIBRARIES)/android.hardware.gatekeeper@1.0.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/android.hardware.keymaster@4.0.so \
-    $(TARGET_OUT_VENDOR_SHARED_LIBRARIES)/android.hardware.keymaster@4.0.so\
-    $(TARGET_OUT_SHARED_LIBRARIES)/android.hardware.keymaster@4.1.so \
-    $(TARGET_OUT_VENDOR_SHARED_LIBRARIES)/android.hardware.keymaster@4.1.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libgatekeeper.so \
-    $(TARGET_OUT_VENDOR_SHARED_LIBRARIES)/libgatekeeper.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libgatekeeper_aidl.so \
-    $(TARGET_OUT_VENDOR_SHARED_LIBRARIES)/libgatekeeper_aidl.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libkernelbootcp.trusty.so \
-    $(TARGET_OUT_VENDOR_SHARED_LIBRARIES)/libkernelbootcp.trusty.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libkey.so \
-    $(TARGET_OUT_VENDOR_SHARED_LIBRARIES)/libkey.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libkeymaster4.so \
-    $(TARGET_OUT_VENDOR_SHARED_LIBRARIES)/libkeymaster4.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libkeymaster4_1support.so \
-    $(TARGET_OUT_VENDOR_SHARED_LIBRARIES)/libkeymaster4_1support.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libkeymaster4support.so \
-    $(TARGET_OUT_VENDOR_SHARED_LIBRARIES)/libkeymaster4support.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libkeymaster41.so \
-    $(TARGET_OUT_VENDOR_SHARED_LIBRARIES)/libkeymaster41.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libkeymaster_messages.so \
-    $(TARGET_OUT_VENDOR_SHARED_LIBRARIES)/libkeymaster_messages.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libkeymaster_portable.so \
-    $(TARGET_OUT_VENDOR_SHARED_LIBRARIES)/libkeymaster_portable.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libpuresoftkeymasterdevice.so \
-    $(TARGET_OUT_VENDOR_SHARED_LIBRARIES)/libpuresoftkeymasterdevice.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libsoft_attestation_cert.so \
-    $(TARGET_OUT_VENDOR_SHARED_LIBRARIES)/libsoft_attestation_cert.so
 
 # Inherit partitions flags
 include device/samsung/a3core/partitions.mk
