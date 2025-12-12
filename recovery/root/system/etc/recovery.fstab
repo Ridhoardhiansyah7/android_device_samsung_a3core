@@ -5,6 +5,7 @@
 /dev/block/by-name/uboot                 /uboot              emmc    defaults    defaults
 /dev/block/by-name/uboot_bak             /uboot_bak          emmc    defaults    defaults
 /dev/block/by-name/misc                  /misc               emmc    defaults    defaults
+/dev/block/by-name/miscdata              /miscdata           emmc    defaults    defaults
 /dev/block/by-name/persist               /persist            emmc    defaults    defaults
 /dev/block/by-name/sml                   /sml                emmc    defaults    defaults
 /dev/block/by-name/sml_bak               /sml_bak            emmc    defaults    defaults
