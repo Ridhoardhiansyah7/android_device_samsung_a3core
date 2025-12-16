@@ -1,23 +1,6 @@
 #add for board init.rc for recovery mode
 import /init.recovery.common.rc
 
-# from vendor/etc/init/vendor.samsung.hardware.sysinput@1.1-service.rc
-on early-boot
-    # from vendor/etc/init/init.md.rc (edited by sheffdev)
-    # adding more ts lkm (rsuntk)
-    insmod /vendor/lib/nt36xxx_ss.ko
-    insmod /vendor/lib/chipone-tddi_ss.ko
-    insmod /vendor/lib/chipone-tddi.ko
-    insmod /vendor/lib/gcore_ss.ko
-    insmod /vendor/lib/gcore_7202h.ko
-    insmod /vendor/lib/ilitek-tddi.ko
-    insmod /vendor/lib/focaltech_ts.ko
-    insmod /vendor/lib/tcs3430.ko
-    
-    # default
-    chown system system /dev/tspio
-    chown system system /sys/class/sec/tsp/enable
-
 on init
     # from recovery: init.recovery.samsung.rc
     # unlink /efs > /mnt/vendor/efs
@@ -32,12 +15,12 @@ on boot
     start boot-hal-1-1
     start health-hal-2-1
 
-on post-fs
-    chown system system sys/class/sec/tsp/input/enabled
-    chmod 664 sys/class/sec/tsp/input/enabled
+on fs
+   start load_modules
 
-on post-fs-data
-    chown system system /proc/tp_gesture
-    chmod 0660 /proc/tp_gesture
-    chown system system /proc/icn85xx_tool
-    chmod 0660 /proc/icn85xx_tool
+service load_modules /system/bin/load_modules.sh
+    oneshot
+    disabled
+    user root
+    group root
+    seclabel u:r:recovery:s0
