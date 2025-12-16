@@ -1,6 +1,5 @@
 #!/sbin/sh
 
-# Team Hovatek Touch Fix
 load_panel()
 {
         insmod /vendor/lib/nt36xxx_ss.ko
