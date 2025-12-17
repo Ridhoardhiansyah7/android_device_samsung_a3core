@@ -27,6 +27,7 @@ on init
 
     chown system root /proc/cpwcn/wdtirq
     chmod 766 /proc/cpwcn/wdtirq
+    start load_flashlight_modules
 
 on fs
     start prepdecrypt
@@ -43,6 +44,13 @@ on post-fs-data
 
 on boot
     install_keyring
+
+service load_flashlight_modules /system/bin/load_flashlight_modules.sh
+    user root
+    group root
+    disabled
+    oneshot
+    seclabel u:r:recovery:s0
 
 service prepdecrypt /system/bin/prepdecrypt.sh
     user root
