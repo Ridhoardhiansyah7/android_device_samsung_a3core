@@ -27,11 +27,8 @@ TW_STATUS_ICONS_ALIGN := center
 TW_CUSTOM_CPU_POS := 50
 TW_CUSTOM_CLOCK_POS := 300
 TW_CUSTOM_BATTERY_POS := 800
-#TW_Y_OFFSET := 80
-#TW_H_OFFSET := -80
 
 # TWRP Settings
-TW_DEVICE_VERSION := A03-core by Aflahal
 TW_NO_REBOOT_BOOTLOADER := true
 TW_HAS_DOWNLOAD_MODE := true
 TW_USE_NEW_MINADBD := true
@@ -54,6 +51,9 @@ TW_INCLUDE_RESETPROP := true
 TW_INCLUDE_REPACKTOOLS := true
 TW_INCLUDE_LIBRESETPROP := true
 
+#Flashligh Path
+BOARD_COMMON_FLASHLIGHT_PATH := /sys/devices/virtual/misc/sprd_flash/test
+
 # SHRP Configuration 
 #A/B,SAR
 SHRP_AB := false
@@ -65,22 +65,46 @@ SHRP_INTERNAL := /sdcard
 SHRP_EXTERNAL := /external_sd
 SHRP_OTG := /usb_otg
 #Flashlight
-SHRP_FLASH := 0
-#SHRP_CUSTOM_FLASHLIGHT := true
-#SHRP_FONP_1 :=
-#SHRP_FONP_2 :=
-#SHRP_FONP_3 :=
+SHRP_FLASH := 1
+SHRP_CUSTOM_FLASHLIGHT := true
+SHRP_FONP_1 := $(BOARD_COMMON_FLASHLIGHT_PATH)
 SHRP_EXPRESS := true
 #SHRP_EXPRESS_USE_DATA := false
 SHRP_NOTCH := true
 SHRP_DARK := true
-#Legacy(backward), lite mode(not include SHRP themming but will save space for devices with a smaller recovery partition)
-#SHRP_NO_SAR_AUTOMOUNT := false
-#SHRP_LITE := false
+
+# OrangeFox Configuration
+FOX_BUILD_DEVICE := A03Core
+OF_DEFAULT_LANG := id
+OF_FLASHLIGHT_ENABLE := true
+OF_FL_PATH1 := $(BOARD_COMMON_FLASHLIGHT_PATH)
+OF_VIBRATOR_ENABLE := false
+#OF_VIBRATOR_PATH := 
+OF_HIDE_NOTCH := true
+OF_KEEP_DM_VERITY := true
+OF_CLOCK_POS := 1
+OF_STATUS_INDENT_LEFT := 50
+OF_STATUS_INDENT_RIGHT := 50
+OF_NO_REFLASH_CURRENT_ORANGEFOX := true
+
+# PBRP Configuration
+PBRP_DEVICE := A03Core
+PBRP_DEFAULT_LANG := in
+PB_DISABLE_DEFAULT_DM_VERITY := true
+BETA_BUILD := true
+PB_TORCH_PATH := $(BOARD_COMMON_FLASHLIGHT_PATH)
+PB_VIBRATOR_PATH := 
+
+# Maintainer
+BOARD_MAINTAINER_NAME := A03Core-Aflahal
+TW_DEVICE_VERSION := $(BOARD_MAINTAINER_NAME)
+SHRP_MAINTAINER := $(BOARD_MAINTAINER_NAME)
+OF_MAINTAINER := $(BOARD_MAINTAINER_NAME)
+PB_MAIN_VERSION := $(BOARD_MAINTAINER_NAME)
 
 # Kernel module loading for touch, battery etc
 TW_LOAD_VENDOR_MODULES := "chipone-tddi.ko chipone-tddi_ss.ko focaltech_ts.ko ilitek-tddi.ko gcore_ss.ko gcore_7202h.ko nt36xxx_ss.ko tcs3430.ko"
 #TW_LOAD_VENDOR_MODULES := $(shell echo \"$(shell ls $(DEVICE_PATH)/prebuilt/modules)\")
 
-TW_LOAD_VENDOR_BOOT_MODULES := false
+#TW_LOAD_VENDOR_BOOT_MODULES := false
 #TW_LOAD_VENDOR_MODULES_EXCLUDE_GKI := true
