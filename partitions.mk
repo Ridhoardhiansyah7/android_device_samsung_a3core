@@ -17,9 +17,9 @@ BOARD_USES_METADATA_PARTITION := true
 
 # Dynamic Partitions / Super partition
 BOARD_SUPER_PARTITION_SIZE := 9126805504
-BOARD_SUPER_PARTITION_GROUPS := samsung_dynamic_partitions
+BOARD_SUPER_PARTITION_GROUPS := group_unisoc
 BOARD_SAMSUNG_DYNAMIC_PARTITIONS_SIZE := 9122611200
-BOARD_SAMSUNG_DYNAMIC_PARTITIONS_PARTITION_LIST := system system_ext vendor product
+BOARD_SAMSUNG_DYNAMIC_PARTITIONS_PARTITION_LIST := product system system_ext vendor
 
 # System as root
 BOARD_ROOT_EXTRA_FOLDERS := cache carrier efs optics prism omr odm socko odmko
