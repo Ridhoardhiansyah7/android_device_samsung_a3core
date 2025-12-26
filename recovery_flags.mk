@@ -12,26 +12,27 @@ TWRP_INCLUDE_LOGCAT := true
 TARGET_USES_LOGD := true
 #TWRP_EVENT_LOGGING := true
 
+# Sysfs path
+BOARD_COMMON_BACKLIGHT_PATH := "/sys/class/backlight/sprd_backlight/brightness"
+BOARD_COMMON_FLASHLIGHT_PATH := "/sys/devices/virtual/misc/sprd_flash/test"
+
 # Screen & Haptics
 TW_THEME := portrait_hdpi
 TARGET_SCREEN_WIDTH := 720
 TARGET_SCREEN_HEIGHT := 1600
 TW_SCREEN_BLANK_ON_BOOT := true
-TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel/brightness"
+TW_BRIGHTNESS_PATH := $(BOARD_COMMON_BACKLIGHT_PATH)
 TW_MAX_BRIGHTNESS := 240
 TW_DEFAULT_BRIGHTNESS := 90
-TW_USE_SAMSUNG_HAPTICS := true
+TW_NO_HAPTICS := true
 
 # TWRP Fix Clock,Cpu temp, battery persentase position
 TW_STATUS_ICONS_ALIGN := center
 TW_CUSTOM_CPU_POS := 50
 TW_CUSTOM_CLOCK_POS := 300
 TW_CUSTOM_BATTERY_POS := 800
-#TW_Y_OFFSET := 80
-#TW_H_OFFSET := -80
 
 # TWRP Settings
-TW_DEVICE_VERSION := A03-core by Aflahal
 TW_NO_REBOOT_BOOTLOADER := true
 TW_HAS_DOWNLOAD_MODE := true
 TW_USE_NEW_MINADBD := true
@@ -62,6 +63,9 @@ SHRP_DEVICE_TYPE := A_Only
 SHRP_REC_TYPE := SAR
 SHRP_REC := /dev/block/by-name/recovery
 SHRP_HAS_RECOVERY_PARTITION := true
+SHRP_FLASH := 1
+SHRP_CUSTOM_FLASHLIGHT := true
+SHRP_FONP_1 := $(BOARD_COMMON_FLASHLIGHT_PATH)
 SHRP_INTERNAL := /sdcard
 SHRP_EXTERNAL := /external_sd
 SHRP_OTG := /usb_otg
@@ -70,9 +74,40 @@ SHRP_EXPRESS := true
 SHRP_NOTCH := true
 SHRP_DARK := true
 
+# PBRP Configuration
+PBRP_DEVICE := a3core
+PBRP_DEFAULT_LANG := in
+PB_DISABLE_DEFAULT_DM_VERITY := true
+BETA_BUILD := true
+PB_TORCH_PATH := $(BOARD_COMMON_FLASHLIGHT_PATH)
+PB_VIBRATOR_PATH := 
+
+# OrangeFox Configuration
+#OF_FIX_DECRYPTION_ON_DATA_MEDIA := true
+#FOX_USE_DATA_RECOVERY_FOR_SETTINGS := true
+FOX_BUILD_DEVICE := a3core
+OF_DEFAULT_LANG := id
+OF_FLASHLIGHT_ENABLE := true
+OF_FL_PATH1 := $(BOARD_COMMON_FLASHLIGHT_PATH)
+OF_VIBRATOR_ENABLE := false
+#OF_VIBRATOR_PATH := 
+OF_HIDE_NOTCH := true
+OF_KEEP_DM_VERITY := true
+OF_CLOCK_POS := 1
+OF_STATUS_INDENT_LEFT := 50
+OF_STATUS_INDENT_RIGHT := 50
+OF_NO_REFLASH_CURRENT_ORANGEFOX := true
+
 # Kernel module loading for touch, battery etc
 TW_LOAD_VENDOR_MODULES := "chipone-tddi.ko chipone-tddi_ss.ko focaltech_ts.ko ilitek-tddi.ko gcore_ss.ko gcore_7202h.ko nt36xxx_ss.ko tcs3430.ko"
 #TW_LOAD_VENDOR_MODULES := $(shell echo \"$(shell ls $(DEVICE_PATH)/prebuilt/modules)\")
 
-TW_LOAD_VENDOR_BOOT_MODULES := false
+#TW_LOAD_VENDOR_BOOT_MODULES := false
 #TW_LOAD_VENDOR_MODULES_EXCLUDE_GKI := true
+
+# Maintainer
+BOARD_MAINTAINER_NAME := A03Core-Aflahal
+TW_DEVICE_VERSION := $(BOARD_MAINTAINER_NAME)
+PB_MAIN_VERSION := $(BOARD_MAINTAINER_NAME)
+OF_MAINTAINER := $(BOARD_MAINTAINER_NAME)
+SHRP_MAINTAINER := $(BOARD_MAINTAINER_NAME)
