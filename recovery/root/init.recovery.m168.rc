@@ -1,15 +1,6 @@
 #add for board init.rc for recovery mode
 import /init.recovery.common.rc
-
-on init
-    # from recovery: init.recovery.samsung.rc
-    # unlink /efs > /mnt/vendor/efs
-    rm /efs
-    mkdir /efs
-    mkdir /sec_efs
-
-    chown system root /proc/cpwcn/wdtirq
-    chmod 766 /proc/cpwcn/wdtirq
+import /init.recovery.samsung.rc
 
 on boot
     start boot-hal-1-1
