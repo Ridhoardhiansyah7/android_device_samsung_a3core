@@ -16,9 +16,17 @@ on boot
     start health-hal-2-1
 
 on fs
-   start load_modules
+   start load_touchscreen_modules
+   start load_flashlight_modules
 
-service load_modules /system/bin/load_modules.sh
+service load_touchscreen_modules /system/bin/load_touchscreen_modules.sh
+    oneshot
+    disabled
+    user root
+    group root
+    seclabel u:r:recovery:s0
+
+service load_flashlight_modules /system/bin/load_flashlight_modules.sh
     oneshot
     disabled
     user root
