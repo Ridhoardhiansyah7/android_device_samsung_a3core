@@ -13,8 +13,8 @@ TARGET_USES_LOGD := true
 #TWRP_EVENT_LOGGING := true
 
 # Sysfs path
-BOARD_COMMON_BACKLIGHT_PATH := "/sys/class/backlight/sprd_backlight/brightness"
-BOARD_COMMON_FLASHLIGHT_PATH := "/sys/devices/virtual/misc/sprd_flash/test"
+BOARD_COMMON_BACKLIGHT_PATH := /sys/class/backlight/sprd_backlight/brightness
+BOARD_COMMON_FLASHLIGHT_PATH := /sys/devices/virtual/misc/sprd_flash/test
 
 # Screen & Haptics
 TW_THEME := portrait_hdpi
