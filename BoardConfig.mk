@@ -74,8 +74,8 @@ BOARD_MKBOOTIMG_ARGS := \
         --recovery_dtbo $(BOARD_PREBUILT_DTBOIMAGE) \
 	--dtb_offset $(BOARD_DTB_OFFSET)
 
-BOARD_CUSTOM_BOOTIMG := true
-BOARD_CUSTOM_BOOTIMG_MK := $(DEVICE_PATH)/bootimg.mk
+#BOARD_CUSTOM_BOOTIMG := true
+#BOARD_CUSTOM_BOOTIMG_MK := $(DEVICE_PATH)/bootimg.mk
 
 # Android Verified Boot
 BOARD_AVB_ENABLE := true
