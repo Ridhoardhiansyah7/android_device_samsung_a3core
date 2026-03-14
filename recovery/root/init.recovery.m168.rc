@@ -6,7 +6,7 @@ on boot
     start boot-hal-1-1
     start health-hal-2-1
 
-on fs
+on init
    start load_touchscreen_modules
    start load_flashlight_modules
 
