@@ -14,7 +14,7 @@ TARGET_USES_LOGD := true
 
 # Sysfs path
 BOARD_COMMON_BACKLIGHT_PATH := /sys/class/backlight/sprd_backlight/brightness
-BOARD_COMMON_FLASHLIGHT_PATH := /sys/devices/virtual/misc/sprd_flash/test
+BOARD_COMMON_FLASHLIGHT_PATH := /sys/devices/virtual/misc/sprd_flash/flash_ctrl
 BOARD_COMMON_VIBRATOR_PATH := /sys/class/timed_output/vibrator/enable
 
 # Screen & Haptics
