@@ -2,6 +2,10 @@
 import /init.recovery.common.rc
 import /init.recovery.samsung.rc
 
+on boot
+    start boot-hal-1-1
+    start health-hal-2-1
+
 on init
    start load_touchscreen_modules
    start load_flashlight_modules
