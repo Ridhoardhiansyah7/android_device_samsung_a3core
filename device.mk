@@ -19,44 +19,14 @@ LOCAL_PATH := device/samsung/a3core
 # Dynamic partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
-#V-A/B, A/B
-TARGET_IS_VAB := false
-ENABLE_VIRTUAL_AB := false
-
-# f2fs utilities
-PRODUCT_PACKAGES += \
-    sg_write_buffer \
-    f2fs_io \
-    check_f2fs
-
-# Userdata checkpoint
-PRODUCT_PACKAGES += \
-    checkpoint_gc
-
 # Health
 PRODUCT_PACKAGES += \
     android.hardware.health@2.1-impl \
     android.hardware.health@2.1-impl.recovery \
     android.hardware.health@2.1-service
 
-# Boot Control HAL
-PRODUCT_PACKAGES += \
-    android.hardware.boot@1.1-impl \
-    android.hardware.boot@1.1-impl.recovery \
-    android.hardware.boot@1.1-service
-
-# bootctrl HAL    
-PRODUCT_PACKAGES += \
-    bootctrl.default \
-    bootctrl.unisoc \
-    bootctrl.unisoc.recovery \
-    unisoc.bootctrl
-
 # fastbootd
 PRODUCT_PACKAGES += \
     android.hardware.fastboot@1.0-impl-mock \
     android.hardware.fastboot@1.0-impl-mock.recovery \
     fastbootd
-
-# Hidl
-PRODUCT_ENFORCE_VINTF_MANIFEST := false 
