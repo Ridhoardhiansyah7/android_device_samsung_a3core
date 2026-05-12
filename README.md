@@ -39,7 +39,7 @@ Medium checks
 - [X] all important partitions listed in mount/backup lists
 - [X] backup/restore to/from external (USB-OTG) storage
 - [X] backup/restore to/from adb
-- [ ] decrypt /data
+- [X] decrypt /data (Bug : work only if no password is set, there may be a keystore/gatekeeper related issue)
 - [X] Correct date
 
 Minor checks
