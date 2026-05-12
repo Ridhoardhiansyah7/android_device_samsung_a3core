@@ -28,7 +28,15 @@ on property:crypto.ready=1 && property:hwservicemanager.ready=true
     start keymint-1-0
     start gatekeeper-1-0
 
-on property:ro.crypto.state=unsupported || property:ro.crypto.state=unencrypted || property:twrp.decrypt.done=true
+on property:ro.crypto.state=unsupported
+    stop keymint-1-0
+    stop gatekeeper-1-0
+
+on property:ro.crypto.state=unencrypted
+    stop keymint-1-0
+    stop gatekeeper-1-0
+
+on property:twrp.decrypt.done=true
     stop keymint-1-0
     stop gatekeeper-1-0
 
