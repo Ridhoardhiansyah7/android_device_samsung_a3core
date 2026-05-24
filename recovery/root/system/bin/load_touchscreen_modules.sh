@@ -14,6 +14,10 @@ load_panel()
         # default
         chown system system /dev/tspio
         chown system system /sys/class/sec/tsp/input/enabled
+
+        # enable
+        echo 1 > /sys/class/sec/tsp/input/enabled
+
 }
 
 
