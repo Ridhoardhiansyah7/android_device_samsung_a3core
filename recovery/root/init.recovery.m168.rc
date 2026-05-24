@@ -13,7 +13,6 @@ on boot
     install_keyring
     start keymint-1-0
     start gatekeeper-1-0
-    start boot-hal-1-1
     start health-hal-2-1
 
 on property:vendor.sys.listener.registered=true
@@ -57,7 +56,7 @@ service keymint-1-0 /system/bin/hw/android.hardware.security.keymint@1.0-unisoc.
     user root
     group root drmrpc
     disabled
-   seclabel u:r:recovery:s0
+    seclabel u:r:recovery:s0
 
 service gatekeeper-1-0 /system/bin/hw/android.hardware.gatekeeper@1.0-service.trusty
     user root
