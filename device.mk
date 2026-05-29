@@ -31,4 +31,14 @@ PRODUCT_PACKAGES += \
     android.hardware.fastboot@1.0-impl-mock.recovery \
     fastbootd
 
+# Keystore Hal
+PRODUCT_PACKAGES += \
+    android.system.keystore2
+
+# Keymint/Security
+PRODUCT_PACKAGES += \
+    android.hardware.security.keymint \
+    android.hardware.security.secureclock \
+    android.hardware.security.sharedsecret
+
 #PRODUCT_ENFORCE_VINTF_MANIFEST := false
