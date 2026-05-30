@@ -9,6 +9,7 @@ CHIPSET | Spreadtrum SC9863A
 GPU     | PowerVR GE8322
 Memory  | 2GB
 Shipped Android Version | 11.0 GO
+Up To Android Version   | 13.0 GO
 Storage | 32GB
 Battery | Li-Po 5000 mAh
 Dimensions | 164.2 x 75.9 x 9.1 mm
@@ -44,7 +45,7 @@ Medium checks
 
 Minor checks
 - [X] MTP export
-- [X] reboot to bootloader
+- [X] reboot to download
 - [X] reboot to recovery
 - [X] poweroff
 - [X] battery level
@@ -54,6 +55,6 @@ Minor checks
 - [X] USB mass storage export
 - [X] set brightness
 - [X] vibrate
-- [ ] Flashlight (soon)
+- [X] Flashlight (Only Pbrp,Shrp,OFrp)
 - [X] screenshot
 - [X] partition SD card
