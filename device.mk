@@ -19,6 +19,10 @@ LOCAL_PATH := device/samsung/a3core
 # Dynamic partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
+# API
+PRODUCT_SHIPPING_API_LEVEL := 30
+PRODUCT_TARGET_VNDK_VERSION := 30
+
 # Health
 PRODUCT_PACKAGES += \
     android.hardware.health@2.1-impl \
